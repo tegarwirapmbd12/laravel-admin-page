@@ -529,6 +529,10 @@
                             <img alt="English" class="me-1 rounded-circle" data-translator-image="" height="18" src="/images/flags/us.svg" />
                             <span class="align-middle">English</span>
                         </a>
+                        <a class="dropdown-item" data-translator-lang="id" href="javascript:void(0);" title="Indonesian">
+                            <img alt="Indonesian" class="me-1 rounded-circle" data-translator-image="" height="18" src="/images/flags/id.svg" />
+                            <span class="align-middle">Bahasa Indonesia</span>
+                        </a>
                         <a class="dropdown-item" data-translator-lang="de" href="javascript:void(0);" title="German">
                             <img alt="German" class="me-1 rounded-circle" data-translator-image="" height="18" src="/images/flags/de.svg" />
                             <span class="align-middle">Deutsch</span>
