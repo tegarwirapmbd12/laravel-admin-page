@@ -1,0 +1,456 @@
+<div class="sidenav-menu">
+    <!-- Brand Logo -->
+    <a class="logo" href="{{ url("/") }}">
+        <span class="logo logo-light">
+            <span class="logo-lg"><img alt="logo" src="/images/logo.png" /></span>
+            <span class="logo-sm"><img alt="small logo" src="/images/logo-sm.png" /></span>
+        </span>
+        <span class="logo logo-dark">
+            <span class="logo-lg"><img alt="dark logo" src="/images/logo-black.png" /></span>
+            <span class="logo-sm"><img alt="small logo" src="/images/logo-sm.png" /></span>
+        </span>
+    </a>
+    <!-- Sidebar Hover Menu Toggle Button -->
+    <button class="button-on-hover">
+        <span class="btn-on-hover-icon"></span>
+    </button>
+    <!-- Full Sidebar Menu Close Button -->
+    <button class="button-close-offcanvas">
+        <i class="align-middle" data-lucide="menu"></i>
+    </button>
+    <div class="scrollbar" data-simplebar="">
+        <div class="sidenav-user" id="user-profile-settings" style="background: url(/images/user-bg-pattern.svg)">
+            <div class="d-flex justify-content-between align-items-center">
+                <div>
+                    <a class="link-reset" href="#!">
+                        <img alt="user-image" class="rounded-circle mb-2 avatar-md" src="/images/users/user-1.jpg" />
+                        <span class="sidenav-user-name fw-bold">Geneva K.</span>
+                        <span class="fs-12 fw-semibold" data-lang="user-role">Art Director</span>
+                    </a>
+                </div>
+                <div>
+                    <a aria-expanded="false" aria-haspopup="false" class="dropdown-toggle drop-arrow-none link-reset sidenav-user-set-icon" data-bs-offset="0,12" data-bs-toggle="dropdown" href="#!">
+                        <i class="fs-24 align-middle ms-1" data-lucide="settings"></i>
+                    </a>
+                    <div class="dropdown-menu">
+                        <!-- Header -->
+                        <div class="dropdown-header noti-title">
+                            <h6 class="text-overflow m-0">Welcome back!</h6>
+                        </div>
+                        <!-- My Profile -->
+                        <a class="dropdown-item" href="#!">
+                            <i class="me-1 fs-lg align-middle" data-lucide="circle-user-round"></i>
+                            <span class="align-middle">Profile</span>
+                        </a>
+                        <!-- Settings -->
+                        <a class="dropdown-item" href="javascript:void(0);">
+                            <i class="me-1 fs-lg align-middle" data-lucide="bolt"></i>
+                            <span class="align-middle">Account Settings</span>
+                        </a>
+                        <!-- Lock -->
+                        <a class="dropdown-item" href="{{ url("/auth/lock-screen") }}">
+                            <i class="me-1 fs-lg align-middle" data-lucide="lock-keyhole"></i>
+                            <span class="align-middle">Lock Screen</span>
+                        </a>
+                        <!-- Logout -->
+                        <a class="dropdown-item text-danger fw-semibold" href="javascript:void(0);">
+                            <i class="me-1 fs-lg align-middle" data-lucide="log-out"></i>
+                            <span class="align-middle">Log Out</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--- Sidenav Menu -->
+        <div id="sidenav-menu">
+            <ul class="side-nav">
+                <li class="side-nav-title mt-2" data-lang="main">Main</li>
+                <li class="side-nav-item">
+                    <a class="side-nav-link" href="{{ url("/") }}">
+                        <span class="menu-icon"><i data-lucide="layout-dashboard"></i></span>
+                        <span class="menu-text" data-lang="dashboard-ecommerce">Ecommerce</span>
+                    </a>
+                </li>
+                <li class="side-nav-title mt-2" data-lang="custom-pages">Custom Pages</li>
+                <li class="side-nav-item">
+                    <a class="side-nav-link" href="{{ url("/pages/empty") }}">
+                        <span class="menu-icon"><i data-lucide="book-open-text"></i></span>
+                        <span class="menu-text" data-lang="pages-empty">Empty Page</span>
+                    </a>
+                </li>
+                <li class="side-nav-item">
+                    <a aria-controls="authentication" aria-expanded="false" class="side-nav-link" data-bs-toggle="collapse" href="#authentication">
+                        <span class="menu-icon"><i data-lucide="user-lock"></i></span>
+                        <span class="menu-text" data-lang="authentication">Authentication</span>
+                        <span class="menu-arrow"></span>
+                    </a>
+                    <div class="collapse" id="authentication">
+                        <ul class="sub-menu">
+                            <li class="side-nav-item">
+                                <a aria-controls="auth-basic" aria-expanded="false" class="side-nav-link" data-bs-toggle="collapse" href="#auth-basic">
+                                    <span class="menu-text" data-lang="auth-basic">Basic</span>
+                                    <span class="menu-arrow"></span>
+                                </a>
+                                <div class="collapse" id="auth-basic">
+                                    <ul class="sub-menu">
+                                        <li class="side-nav-item">
+                                            <a class="side-nav-link" href="{{ url("/auth/sign-in") }}">
+                                                <span class="menu-text" data-lang="auth-sign-in">Sign In</span>
+                                            </a>
+                                        </li>
+                                        <li class="side-nav-item">
+                                            <a class="side-nav-link" href="{{ url("/auth/sign-up") }}">
+                                                <span class="menu-text" data-lang="auth-sign-up">Sign Up</span>
+                                            </a>
+                                        </li>
+                                        <li class="side-nav-item">
+                                            <a class="side-nav-link" href="{{ url("/auth/reset-pass") }}">
+                                                <span class="menu-text" data-lang="auth-reset-pass">Reset Password</span>
+                                            </a>
+                                        </li>
+                                        <li class="side-nav-item">
+                                            <a class="side-nav-link" href="{{ url("/auth/new-pass") }}">
+                                                <span class="menu-text" data-lang="auth-new-pass">New Password</span>
+                                            </a>
+                                        </li>
+                                        <li class="side-nav-item">
+                                            <a class="side-nav-link" href="{{ url("/auth/two-factor") }}">
+                                                <span class="menu-text" data-lang="auth-two-factor">Two Factor</span>
+                                            </a>
+                                        </li>
+                                        <li class="side-nav-item">
+                                            <a class="side-nav-link" href="{{ url("/auth/lock-screen") }}">
+                                                <span class="menu-text" data-lang="auth-lock-screen">Lock Screen</span>
+                                            </a>
+                                        </li>
+                                        <li class="side-nav-item">
+                                            <a class="side-nav-link" href="{{ url("/auth/success-mail") }}">
+                                                <span class="menu-text" data-lang="auth-success-mail">Success Mail</span>
+                                            </a>
+                                        </li>
+                                        <li class="side-nav-item">
+                                            <a class="side-nav-link" href="{{ url("/auth/login-pin") }}">
+                                                <span class="menu-text" data-lang="auth-login-pin">Login with PIN</span>
+                                            </a>
+                                        </li>
+                                        <li class="side-nav-item">
+                                            <a class="side-nav-link" href="{{ url("/auth/delete-account") }}">
+                                                <span class="menu-text" data-lang="auth-delete-account">Delete Account</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="side-nav-item">
+                                <a aria-controls="auth-split" aria-expanded="false" class="side-nav-link" data-bs-toggle="collapse" href="#auth-split">
+                                    <span class="menu-text" data-lang="auth-split">Split</span>
+                                    <span class="menu-arrow"></span>
+                                </a>
+                                <div class="collapse" id="auth-split">
+                                    <ul class="sub-menu">
+                                        <li class="side-nav-item">
+                                            <a class="side-nav-link" href="{{ url("/auth-split/sign-in") }}">
+                                                <span class="menu-text" data-lang="auth-split-sign-in">Sign In</span>
+                                            </a>
+                                        </li>
+                                        <li class="side-nav-item">
+                                            <a class="side-nav-link" href="{{ url("/auth-split/sign-up") }}">
+                                                <span class="menu-text" data-lang="auth-split-sign-up">Sign Up</span>
+                                            </a>
+                                        </li>
+                                        <li class="side-nav-item">
+                                            <a class="side-nav-link" href="{{ url("/auth-split/reset-pass") }}">
+                                                <span class="menu-text" data-lang="auth-split-reset-pass">Reset Password</span>
+                                            </a>
+                                        </li>
+                                        <li class="side-nav-item">
+                                            <a class="side-nav-link" href="{{ url("/auth-split/new-pass") }}">
+                                                <span class="menu-text" data-lang="auth-split-new-pass">New Password</span>
+                                            </a>
+                                        </li>
+                                        <li class="side-nav-item">
+                                            <a class="side-nav-link" href="{{ url("/auth-split/two-factor") }}">
+                                                <span class="menu-text" data-lang="auth-split-two-factor">Two Factor</span>
+                                            </a>
+                                        </li>
+                                        <li class="side-nav-item">
+                                            <a class="side-nav-link" href="{{ url("/auth-split/lock-screen") }}">
+                                                <span class="menu-text" data-lang="auth-split-lock-screen">Lock Screen</span>
+                                            </a>
+                                        </li>
+                                        <li class="side-nav-item">
+                                            <a class="side-nav-link" href="{{ url("/auth-split/success-mail") }}">
+                                                <span class="menu-text" data-lang="auth-split-success-mail">Success Mail</span>
+                                            </a>
+                                        </li>
+                                        <li class="side-nav-item">
+                                            <a class="side-nav-link" href="{{ url("/auth-split/login-pin") }}">
+                                                <span class="menu-text" data-lang="auth-split-login-pin">Login with PIN</span>
+                                            </a>
+                                        </li>
+                                        <li class="side-nav-item">
+                                            <a class="side-nav-link" href="{{ url("/auth-split/delete-account") }}">
+                                                <span class="menu-text" data-lang="auth-split-delete-account">Delete Account</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="side-nav-item">
+                    <a aria-controls="error-pages" aria-expanded="false" class="side-nav-link" data-bs-toggle="collapse" href="#error-pages">
+                        <span class="menu-icon"><i data-lucide="alert-triangle"></i></span>
+                        <span class="menu-text" data-lang="error-pages">Error Pages</span>
+                        <span class="menu-arrow"></span>
+                    </a>
+                    <div class="collapse" id="error-pages">
+                        <ul class="sub-menu">
+                            <li class="side-nav-item">
+                                <a class="side-nav-link" href="{{ url("/error/400") }}">
+                                    <span class="menu-text" data-lang="error-400">400 Bad Request</span>
+                                </a>
+                            </li>
+                            <li class="side-nav-item">
+                                <a class="side-nav-link" href="{{ url("/error/401") }}">
+                                    <span class="menu-text" data-lang="error-401">401 Unauthorized</span>
+                                </a>
+                            </li>
+                            <li class="side-nav-item">
+                                <a class="side-nav-link" href="{{ url("/error/403") }}">
+                                    <span class="menu-text" data-lang="error-403">403 Forbidden</span>
+                                </a>
+                            </li>
+                            <li class="side-nav-item">
+                                <a class="side-nav-link" href="{{ url("/error/404") }}">
+                                    <span class="menu-text" data-lang="error-404">404 Not Found</span>
+                                </a>
+                            </li>
+                            <li class="side-nav-item">
+                                <a class="side-nav-link" href="{{ url("/error/408") }}">
+                                    <span class="menu-text" data-lang="error-408">408 Request Timeout</span>
+                                </a>
+                            </li>
+                            <li class="side-nav-item">
+                                <a class="side-nav-link" href="{{ url("/error/500") }}">
+                                    <span class="menu-text" data-lang="error-500">500 Internal Server</span>
+                                </a>
+                            </li>
+                            <li class="side-nav-item">
+                                <a class="side-nav-link" href="{{ url("/error/maintenance") }}">
+                                    <span class="menu-text" data-lang="error-maintenance">Maintenance</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="side-nav-title mt-2" data-lang="layouts">Layouts</li>
+                <li class="side-nav-item">
+                    <a aria-controls="layout-options" aria-expanded="false" class="side-nav-link" data-bs-toggle="collapse" href="#layout-options">
+                        <span class="menu-icon"><i data-lucide="layout-panel-left"></i></span>
+                        <span class="menu-text" data-lang="layout-options">Layout Options</span>
+                        <span class="menu-arrow"></span>
+                    </a>
+                    <div class="collapse" id="layout-options">
+                        <ul class="sub-menu">
+                            <li class="side-nav-item">
+                                <a class="side-nav-link" href="{{ url("/layouts/scrollable") }}" target="_blank">
+                                    <span class="menu-text" data-lang="layouts-scrollable">Scrollable</span>
+                                </a>
+                            </li>
+                            <li class="side-nav-item">
+                                <a class="side-nav-link" href="{{ url("/layouts/compact") }}" target="_blank">
+                                    <span class="menu-text" data-lang="layouts-compact">Compact</span>
+                                </a>
+                            </li>
+                            <li class="side-nav-item">
+                                <a class="side-nav-link" href="{{ url("/layouts/boxed") }}" target="_blank">
+                                    <span class="menu-text" data-lang="layouts-boxed">Boxed</span>
+                                </a>
+                            </li>
+                            <li class="side-nav-item">
+                                <a class="side-nav-link" href="{{ url("/layouts/horizontal") }}" target="_blank">
+                                    <span class="menu-text" data-lang="layouts-horizontal">Horizontal</span>
+                                </a>
+                            </li>
+                            <li class="side-nav-item">
+                                <a class="side-nav-link" href="{{ url("/layouts/preloader") }}" target="_blank">
+                                    <span class="menu-text" data-lang="layouts-preloader">Preloader</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="side-nav-item">
+                    <a aria-controls="sidebars" aria-expanded="false" class="side-nav-link" data-bs-toggle="collapse" href="#sidebars">
+                        <span class="menu-icon"><i data-lucide="panel-left-dashed"></i></span>
+                        <span class="menu-text" data-lang="sidebars">Sidebars</span>
+                        <span class="menu-arrow"></span>
+                    </a>
+                    <div class="collapse" id="sidebars">
+                        <ul class="sub-menu">
+                            <li class="side-nav-item">
+                                <a class="side-nav-link" href="{{ url("/layouts/sidebar/dark") }}" target="_blank">
+                                    <span class="menu-text" data-lang="layouts-sidebar-dark">Dark Menu</span>
+                                </a>
+                            </li>
+                            <li class="side-nav-item">
+                                <a class="side-nav-link" href="{{ url("/layouts/sidebar/gradient") }}" target="_blank">
+                                    <span class="menu-text" data-lang="layouts-sidebar-gradient">Gradient Menu</span>
+                                </a>
+                            </li>
+                            <li class="side-nav-item">
+                                <a class="side-nav-link" href="{{ url("/layouts/sidebar/gray") }}" target="_blank">
+                                    <span class="menu-text" data-lang="layouts-sidebar-gray">Gray Menu</span>
+                                </a>
+                            </li>
+                            <li class="side-nav-item">
+                                <a class="side-nav-link" href="{{ url("/layouts/sidebar/image") }}" target="_blank">
+                                    <span class="menu-text" data-lang="layouts-sidebar-image">Image Menu</span>
+                                </a>
+                            </li>
+                            <li class="side-nav-item">
+                                <a class="side-nav-link" href="{{ url("/layouts/sidebar/compact") }}" target="_blank">
+                                    <span class="menu-text" data-lang="layouts-sidebar-compact">Compact Menu</span>
+                                </a>
+                            </li>
+                            <li class="side-nav-item">
+                                <a class="side-nav-link" href="{{ url("/layouts/sidebar/on-hover") }}" target="_blank">
+                                    <span class="menu-text" data-lang="layouts-sidebar-on-hover">On Hover Menu</span>
+                                </a>
+                            </li>
+                            <li class="side-nav-item">
+                                <a class="side-nav-link" href="{{ url("/layouts/sidebar/on-hover-active") }}" target="_blank">
+                                    <span class="menu-text" data-lang="layouts-sidebar-on-hover-active">On Hover Active</span>
+                                </a>
+                            </li>
+                            <li class="side-nav-item">
+                                <a class="side-nav-link" href="{{ url("/layouts/sidebar/offcanvas") }}" target="_blank">
+                                    <span class="menu-text" data-lang="layouts-sidebar-offcanvas">Offcanvas Menu</span>
+                                </a>
+                            </li>
+                            <li class="side-nav-item">
+                                <a class="side-nav-link" href="{{ url("/layouts/sidebar/no-icons") }}" target="_blank">
+                                    <span class="menu-text" data-lang="layouts-sidebar-no-icons">No Icons with Lines</span>
+                                </a>
+                            </li>
+                            <li class="side-nav-item">
+                                <a class="side-nav-link" href="{{ url("/layouts/sidebar/with-lines") }}" target="_blank">
+                                    <span class="menu-text" data-lang="layouts-sidebar-with-lines">Sidebar with Lines</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="side-nav-item">
+                    <a aria-controls="topbar" aria-expanded="false" class="side-nav-link" data-bs-toggle="collapse" href="#topbar">
+                        <span class="menu-icon"><i data-lucide="panel-top-dashed"></i></span>
+                        <span class="menu-text" data-lang="topbar">Topbar</span>
+                        <span class="menu-arrow"></span>
+                    </a>
+                    <div class="collapse" id="topbar">
+                        <ul class="sub-menu">
+                            <li class="side-nav-item">
+                                <a class="side-nav-link" href="{{ url("/layouts/topbar/light") }}" target="_blank">
+                                    <span class="menu-text" data-lang="layouts-topbar-light">Light Topbar</span>
+                                </a>
+                            </li>
+                            <li class="side-nav-item">
+                                <a class="side-nav-link" href="{{ url("/layouts/topbar/gray") }}" target="_blank">
+                                    <span class="menu-text" data-lang="layouts-topbar-gray">Gray Topbar</span>
+                                </a>
+                            </li>
+                            <li class="side-nav-item">
+                                <a class="side-nav-link" href="{{ url("/layouts/topbar/gradient") }}" target="_blank">
+                                    <span class="menu-text" data-lang="layouts-topbar-gradient">Gradient Topbar</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="side-nav-title mt-2" data-lang="components">Components</li>
+                <li class="side-nav-item">
+                    <a class="side-nav-link" href="{{ url("/icons/lucide") }}">
+                        <span class="menu-icon"><i data-lucide="cannabis"></i></span>
+                        <span class="menu-text" data-lang="icons-lucide">Lucide</span>
+                    </a>
+                </li>
+                <li class="side-nav-title mt-2" data-lang="menu-items">Menu Items</li>
+                <li class="side-nav-item">
+                    <a aria-controls="menu-levels" aria-expanded="false" class="side-nav-link" data-bs-toggle="collapse" href="#menu-levels">
+                        <span class="menu-icon"><i data-lucide="list-tree"></i></span>
+                        <span class="menu-text" data-lang="menu-levels">Menu Levels</span>
+                        <span class="menu-arrow"></span>
+                    </a>
+                    <div class="collapse" id="menu-levels">
+                        <ul class="sub-menu">
+                            <li class="side-nav-item">
+                                <a aria-controls="second-level" aria-expanded="false" class="side-nav-link" data-bs-toggle="collapse" href="#second-level">
+                                    <span class="menu-text" data-lang="second-level">Second Level</span>
+                                    <span class="menu-arrow"></span>
+                                </a>
+                                <div class="collapse" id="second-level">
+                                    <ul class="sub-menu">
+                                        <li class="side-nav-item">
+                                            <a class="side-nav-link" href="#">
+                                                <span class="menu-text" data-lang="menu-item-1">Item 2.1</span>
+                                            </a>
+                                        </li>
+                                        <li class="side-nav-item">
+                                            <a class="side-nav-link" href="#">
+                                                <span class="menu-text" data-lang="menu-item-2">Item 2.2</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="side-nav-item">
+                                <a aria-controls="second-level-2" aria-expanded="false" class="side-nav-link" data-bs-toggle="collapse" href="#second-level-2">
+                                    <span class="menu-text" data-lang="second-level-2">Second Level</span>
+                                    <span class="menu-arrow"></span>
+                                </a>
+                                <div class="collapse" id="second-level-2">
+                                    <ul class="sub-menu">
+                                        <li class="side-nav-item">
+                                            <a class="side-nav-link" href="#">
+                                                <span class="menu-text" data-lang="menu-item-3">Item 2.1</span>
+                                            </a>
+                                        </li>
+                                        <li class="side-nav-item">
+                                            <a aria-controls="menu-item-4" aria-expanded="false" class="side-nav-link" data-bs-toggle="collapse" href="#menu-item-4">
+                                                <span class="menu-text" data-lang="menu-item-4">Item 2.2</span>
+                                                <span class="menu-arrow"></span>
+                                            </a>
+                                            <div class="collapse" id="menu-item-4">
+                                                <ul class="sub-menu">
+                                                    <li class="side-nav-item">
+                                                        <a class="side-nav-link" href="#">
+                                                            <span class="menu-text" data-lang="menu-item-5">Item 3.1</span>
+                                                        </a>
+                                                    </li>
+                                                    <li class="side-nav-item">
+                                                        <a class="side-nav-link" href="#">
+                                                            <span class="menu-text" data-lang="menu-item-6">Item 3.2</span>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="side-nav-item">
+                    <a class="side-nav-link disabled" href="#">
+                        <span class="menu-icon"><i data-lucide="ban"></i></span>
+                        <span class="menu-text" data-lang="disabled-menu">Disabled Menu</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!-- Sidenav Menu End -->
