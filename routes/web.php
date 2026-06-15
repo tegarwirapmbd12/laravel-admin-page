@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CrudGeneratorController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -186,4 +187,13 @@ Route::get('/layouts/topbar/light', function () {
     return view('layouts.topbar.light');
 });
 
+if (app()->environment('local')) {
+    Route::prefix('crud-generator')->group(function () {
+        Route::get('/', [CrudGeneratorController::class, 'index'])->name('crud.index');
+        Route::post('/generate', [CrudGeneratorController::class, 'generate'])->name('crud.generate');
+    });
+}
+
 Route::resource('example_cruds', \App\Http\Controllers\ExampleCrudController::class);
+
+Route::resource('example_twos', \App\Http\Controllers\ExampleTwoController::class);
