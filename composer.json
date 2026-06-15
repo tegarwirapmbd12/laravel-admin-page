@@ -7,9 +7,9 @@
     "license": "MIT",
     "require": {
         "php": "^8.2",
-        "amdadulhaq/crud-generator-laravel": "^1.1",
         "laravel/framework": "^13.0",
-        "laravel/tinker": "^3.0"
+        "laravel/tinker": "^3.0",
+        "tgrwirapmbd/crud-generator-laravel": "@dev"
     },
     "require-dev": {
         "fakerphp/faker": "^1.23",

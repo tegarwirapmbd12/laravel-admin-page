@@ -4,70 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "38fb89ea16a0fb9a92d57c13098cf163",
+    "content-hash": "074d8c0e8c4359418022d9930f9bc47c",
     "packages": [
-        {
-            "name": "amdadulhaq/crud-generator-laravel",
-            "version": "v1.1.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/amdad121/crud-generator-laravel.git",
-                "reference": "b8a506cde47adb694e80ed5ed03fa49f803a2d35"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/amdad121/crud-generator-laravel/zipball/b8a506cde47adb694e80ed5ed03fa49f803a2d35",
-                "reference": "b8a506cde47adb694e80ed5ed03fa49f803a2d35",
-                "shasum": ""
-            },
-            "require": {
-                "illuminate/console": "^10.0|^11.0|^12.0|^13.0",
-                "php": "^8.2|^8.3|^8.4|^8.5"
-            },
-            "require-dev": {
-                "driftingly/rector-laravel": "^1.0|^2.0",
-                "larastan/larastan": "^2.0|^3.0",
-                "laravel/pint": "^1.0",
-                "orchestra/testbench": "^8.0|^9.0|^10.0|^11.0",
-                "pestphp/pest": "^2.0|^3.0|^4.0",
-                "pestphp/pest-plugin-laravel": "^2.0|^3.0|^4.0"
-            },
-            "type": "library",
-            "extra": {
-                "laravel": {
-                    "providers": [
-                        "AmdadulHaq\\CRUDGenerator\\CrudServiceProvider"
-                    ]
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "AmdadulHaq\\CRUDGenerator\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Amdadul Haq",
-                    "email": "amdadulhaq781@gmail.com"
-                }
-            ],
-            "description": "A package to generate CRUD operations easily.",
-            "support": {
-                "issues": "https://github.com/amdad121/crud-generator-laravel/issues",
-                "source": "https://github.com/amdad121/crud-generator-laravel/tree/v1.1.0"
-            },
-            "funding": [
-                {
-                    "url": "https://github.com/amdad121",
-                    "type": "github"
-                }
-            ],
-            "time": "2026-03-19T15:33:22+00:00"
-        },
         {
             "name": "brick/math",
             "version": "0.14.8",
@@ -5847,6 +5785,69 @@
             "time": "2026-05-29T05:06:50+00:00"
         },
         {
+            "name": "tgrwirapmbd/crud-generator-laravel",
+            "version": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/tegarwirapmbd12/fastcrud-v2.git",
+                "reference": "7f0701bb468e5ffe96443d547db3c9d3558e1ab8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/tegarwirapmbd12/fastcrud-v2/zipball/7f0701bb468e5ffe96443d547db3c9d3558e1ab8",
+                "reference": "7f0701bb468e5ffe96443d547db3c9d3558e1ab8",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/console": "^10.0|^11.0|^12.0|^13.0",
+                "php": "^8.2|^8.3|^8.4|^8.5"
+            },
+            "require-dev": {
+                "driftingly/rector-laravel": "^1.0|^2.0",
+                "larastan/larastan": "^2.0|^3.0",
+                "laravel/pint": "^1.0",
+                "orchestra/testbench": "^8.0|^9.0|^10.0|^11.0",
+                "pestphp/pest": "^2.0|^3.0|^4.0",
+                "pestphp/pest-plugin-laravel": "^2.0|^3.0|^4.0"
+            },
+            "default-branch": true,
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Tgrwirapmbd\\CRUDGenerator\\CrudServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Tgrwirapmbd\\CRUDGenerator\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Tegar Pambudi",
+                    "email": "tgrwirapmbd12@gmail.com"
+                }
+            ],
+            "description": "A package to generate CRUD operations easily.",
+            "support": {
+                "issues": "https://github.com/tegarwirapmbd12/fastcrud-v2/issues",
+                "source": "https://github.com/tegarwirapmbd12/fastcrud-v2/tree/main"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/amdad121",
+                    "type": "github"
+                }
+            ],
+            "time": "2026-06-15T03:42:46+00:00"
+        },
+        {
             "name": "tijsverkoyen/css-to-inline-styles",
             "version": "v2.4.0",
             "source": {
@@ -8339,7 +8340,9 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {},
+    "stability-flags": {
+        "tgrwirapmbd/crud-generator-laravel": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
