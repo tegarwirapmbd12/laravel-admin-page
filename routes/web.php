@@ -185,3 +185,5 @@ Route::get('/layouts/topbar/gradient', function () {
 Route::get('/layouts/topbar/light', function () {
     return view('layouts.topbar.light');
 });
+
+Route::resource('example_cruds', \App\Http\Controllers\ExampleCrudController::class);
