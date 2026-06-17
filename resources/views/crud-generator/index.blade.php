@@ -4,6 +4,7 @@
     $columnTypes = [
         'string',
         'text',
+        'longText',
         'integer',
         'bigInteger',
         'smallInteger',
@@ -19,7 +20,7 @@
         'jsonb',
     ];
 
-    $columns = old('columns', [['name' => '', 'type' => 'string']]);
+    $columns = old('columns', [['name' => '', 'type' => 'string', 'nullable' => '0']]);
 @endphp
 
 @section('styles')
@@ -140,9 +141,15 @@
                                 <div class="card-body">
                                     <div class="d-grid gap-3" data-next-index="{{ count($columns) }}" id="columns-wrapper">
                                         @foreach ($columns as $index => $column)
+                                            @php
+                                                $isNullable = filter_var(
+                                                    $column['nullable'] ?? false,
+                                                    FILTER_VALIDATE_BOOLEAN,
+                                                );
+                                            @endphp
                                             <div class="border rounded p-3 column-row">
                                                 <div class="row g-2 align-items-start">
-                                                    <div class="col-12 col-md-5">
+                                                    <div class="col-12 col-md-6">
                                                         <label class="form-label"
                                                             for="columns_{{ $index }}_name">Nama Kolom</label>
                                                         <input
@@ -156,7 +163,7 @@
                                                         @enderror
                                                     </div>
 
-                                                    <div class="col-12 col-md-5">
+                                                    <div class="col-12 col-md-2">
                                                         <label class="form-label"
                                                             for="columns_{{ $index }}_type">Tipe Kolom</label>
                                                         <select
@@ -170,6 +177,22 @@
                                                             @endforeach
                                                         </select>
                                                         @error('columns.' . $index . '.type')
+                                                            <div class="invalid-feedback">{{ $message }}</div>
+                                                        @enderror
+                                                    </div>
+
+                                                    <div class="col-12 col-md-2">
+                                                        <label class="form-label"
+                                                            for="columns_{{ $index }}_nullable">Nullable</label>
+                                                        <select
+                                                            class="form-select @error('columns.' . $index . '.nullable') is-invalid @enderror"
+                                                            id="columns_{{ $index }}_nullable"
+                                                            name="columns[{{ $index }}][nullable]" required>
+                                                            <option value="0" @selected(! $isNullable)>No</option>
+                                                            <option value="1" @selected($isNullable)>Yes
+                                                            </option>
+                                                        </select>
+                                                        @error('columns.' . $index . '.nullable')
                                                             <div class="invalid-feedback">{{ $message }}</div>
                                                         @enderror
                                                     </div>
@@ -206,18 +229,27 @@
     <template id="column-template">
         <div class="border rounded p-3 column-row">
             <div class="row g-2 align-items-start">
-                <div class="col-12 col-md-5">
+                <div class="col-12 col-md-6">
                     <label class="form-label" for="columns___INDEX___name">Nama Kolom</label>
                     <input class="form-control" id="columns___INDEX___name" name="columns[__INDEX__][name]"
                         placeholder="product_name" required type="text">
                 </div>
 
-                <div class="col-12 col-md-5">
+                <div class="col-12 col-md-2">
                     <label class="form-label" for="columns___INDEX___type">Tipe Kolom</label>
                     <select class="form-select" id="columns___INDEX___type" name="columns[__INDEX__][type]" required>
                         @foreach ($columnTypes as $type)
                             <option @selected($type === 'string') value="{{ $type }}">{{ $type }}</option>
                         @endforeach
+                    </select>
+                </div>
+
+                <div class="col-12 col-md-2">
+                    <label class="form-label" for="columns___INDEX___nullable">Nullable</label>
+                    <select class="form-select" id="columns___INDEX___nullable" name="columns[__INDEX__][nullable]"
+                        required>
+                        <option value="0" selected>No</option>
+                        <option value="1">Yes</option>
                     </select>
                 </div>
 
@@ -271,8 +303,9 @@
                 return;
             }
 
-            row.querySelector("input").value = "";
-            row.querySelector("select").value = "string";
+            row.querySelector('input[name$="[name]"]').value = "";
+            row.querySelector('select[name$="[type]"]').value = "string";
+            row.querySelector('select[name$="[nullable]"]').value = "0";
         });
 
         generatorForm.addEventListener("submit", () => {

@@ -12,6 +12,7 @@ class CrudGeneratorController extends Controller
     private const COLUMN_TYPES = [
         'string',
         'text',
+        'longText',
         'integer',
         'bigInteger',
         'smallInteger',
@@ -42,6 +43,7 @@ class CrudGeneratorController extends Controller
             'columns' => ['required', 'array', 'min:1'],
             'columns.*.name' => ['required', 'string', 'regex:/^[a-z][a-z0-9_]*$/', 'distinct'],
             'columns.*.type' => ['required', Rule::in(self::COLUMN_TYPES)],
+            'columns.*.nullable' => ['required', 'boolean'],
         ], [
             'model_name.regex' => 'Nama model harus PascalCase, contoh: ProductCategory.',
             'sidenav_name.regex' => 'Nama sidenav hanya boleh berisi huruf, angka, spasi, garis bawah, atau tanda hubung.',
@@ -53,8 +55,8 @@ class CrudGeneratorController extends Controller
         $parameters = [
             'name' => $validated['model_name'],
             '--fields' => $this->buildFields($validated['columns']),
-            '--sidebar-label' => $validated['sidenav_name'],
-            '--sidebar-icon' => $validated['sidenav_icon'],
+            '--sidenav-name' => $validated['sidenav_name'],
+            '--sidenav-icon' => $validated['sidenav_icon'],
         ];
 
         if ($request->boolean('api')) {
@@ -85,7 +87,13 @@ class CrudGeneratorController extends Controller
     private function buildFields(array $columns): string
     {
         return collect($columns)->map(function ($col) {
-            return trim($col['name']).':'.trim($col['type']);
+            $field = trim($col['name']).':'.trim($col['type']);
+
+            if (filter_var($col['nullable'] ?? false, FILTER_VALIDATE_BOOLEAN)) {
+                $field .= ':nullable';
+            }
+
+            return $field;
         })->implode(',');
     }
 }
