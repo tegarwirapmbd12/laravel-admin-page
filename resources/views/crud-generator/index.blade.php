@@ -1,57 +1,60 @@
-@extends("shared.base", ["title" => "CRUD Generator"])
+@extends('shared.base', ['title' => 'CRUD Generator'])
 
 @php
     $columnTypes = [
-        "string",
-        "text",
-        "integer",
-        "bigInteger",
-        "smallInteger",
-        "tinyInteger",
-        "boolean",
-        "date",
-        "dateTime",
-        "timestamp",
-        "decimal",
-        "float",
-        "double",
-        "json",
-        "jsonb",
+        'string',
+        'text',
+        'integer',
+        'bigInteger',
+        'smallInteger',
+        'tinyInteger',
+        'boolean',
+        'date',
+        'dateTime',
+        'timestamp',
+        'decimal',
+        'float',
+        'double',
+        'json',
+        'jsonb',
     ];
 
-    $columns = old("columns", [["name" => "", "type" => "string"]]);
+    $columns = old('columns', [['name' => '', 'type' => 'string']]);
 @endphp
 
-@section("styles")
+@section('styles')
 @endsection
 
-@section("content")
+@section('content')
     <div class="wrapper">
-        @include("shared.partials.topbar") @include("shared.partials.sidenav")
+        @include('shared.partials.topbar') @include('shared.partials.sidenav')
 
         <div class="content-page">
             <div class="container-fluid">
-                @include("shared.partials.page-title", ["subtitle" => "Tools", "title" => "CRUD Generator"])
+                @include('shared.partials.page-title', [
+                    'subtitle' => 'Tools',
+                    'title' => 'CRUD Generator',
+                ])
 
-                @if (session("success"))
+                @if (session('success'))
                     <div class="alert alert-success d-flex align-items-start gap-2" role="alert">
                         <i class="mt-1" data-lucide="check-circle"></i>
                         <div>
-                            <div class="fw-semibold">{{ session("success") }}</div>
-                            @if (session("output"))
-                                <pre class="mb-0 mt-2 small text-reset white-space-pre-wrap">{{ session("output") }}</pre>
+                            <div class="fw-semibold">{{ session('success') }}</div>
+                            @if (session('output'))
+                                <pre class="mb-0 mt-2 small text-reset white-space-pre-wrap">{{ session('output') }}</pre>
                             @endif
                         </div>
                     </div>
                 @endif
 
-                @if (session("error"))
+                @if (session('error'))
                     <div class="alert alert-danger d-flex align-items-start gap-2" role="alert">
                         <i class="mt-1" data-lucide="circle-alert"></i>
                         <div>
-                            <div class="fw-semibold">{{ session("error") }}</div>
-                            @if (session("output"))
-                                <pre class="mb-0 mt-2 small text-reset white-space-pre-wrap">{{ session("output") }}</pre>
+                            <div class="fw-semibold">{{ session('error') }}</div>
+                            @if (session('output'))
+                                <pre class="mb-0 mt-2 small text-reset white-space-pre-wrap">{{ session('output') }}</pre>
                             @endif
                         </div>
                     </div>
@@ -83,29 +86,39 @@
                                 <div class="card-body">
                                     <div class="mb-3">
                                         <label class="form-label" for="model_name">Nama Model</label>
-                                        <input
-                                            class="form-control @error('model_name') is-invalid @enderror"
-                                            id="model_name"
-                                            name="model_name"
-                                            placeholder="ProductCategory"
-                                            required
-                                            type="text"
-                                            value="{{ old('model_name') }}"
-                                        >
+                                        <input class="form-control @error('model_name') is-invalid @enderror"
+                                            id="model_name" name="model_name" placeholder="ProductCategory" required
+                                            type="text" value="{{ old('model_name') }}">
                                         @error('model_name')
                                             <div class="invalid-feedback">{{ $message }}</div>
                                         @enderror
                                     </div>
 
+                                    <div class="mb-3">
+                                        <label class="form-label" for="sidenav_name">Nama Sidenav</label>
+                                        <input class="form-control @error('sidenav_name') is-invalid @enderror"
+                                            id="sidenav_name" name="sidenav_name" placeholder="Product Category" required
+                                            type="text" value="{{ old('sidenav_name') }}">
+                                        @error('sidenav_name')
+                                            <div class="invalid-feedback">{{ $message }}</div>
+                                        @enderror
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label class="form-label" for="sidenav_icon">Nama Icon</label>
+                                        <input class="form-control @error('sidenav_icon') is-invalid @enderror"
+                                            id="sidenav_icon" name="sidenav_icon" placeholder="package" required
+                                            type="text" value="{{ old('sidenav_icon') }}">
+                                        @error('sidenav_icon')
+                                            <div class="invalid-feedback">{{ $message }}</div>
+                                        @enderror
+                                        <small class="text-muted">Gunakan nama icon dari <a href="https://lucide.dev/icons"
+                                                target="_blank">Lucide Icons</a></small>
+                                    </div>
+
                                     <div class="form-check form-switch">
-                                        <input
-                                            @checked(old('api'))
-                                            class="form-check-input"
-                                            id="api"
-                                            name="api"
-                                            type="checkbox"
-                                            value="1"
-                                        >
+                                        <input @checked(old('api')) class="form-check-input" id="api"
+                                            name="api" type="checkbox" value="1">
                                         <label class="form-check-label" for="api">Generate API Controller</label>
                                     </div>
                                 </div>
@@ -130,31 +143,30 @@
                                             <div class="border rounded p-3 column-row">
                                                 <div class="row g-2 align-items-start">
                                                     <div class="col-12 col-md-5">
-                                                        <label class="form-label" for="columns_{{ $index }}_name">Nama Kolom</label>
+                                                        <label class="form-label"
+                                                            for="columns_{{ $index }}_name">Nama Kolom</label>
                                                         <input
                                                             class="form-control @error('columns.' . $index . '.name') is-invalid @enderror"
                                                             id="columns_{{ $index }}_name"
                                                             name="columns[{{ $index }}][name]"
-                                                            placeholder="product_name"
-                                                            required
-                                                            type="text"
-                                                            value="{{ $column["name"] ?? "" }}"
-                                                        >
+                                                            placeholder="product_name" required type="text"
+                                                            value="{{ $column['name'] ?? '' }}">
                                                         @error('columns.' . $index . '.name')
                                                             <div class="invalid-feedback">{{ $message }}</div>
                                                         @enderror
                                                     </div>
 
                                                     <div class="col-12 col-md-5">
-                                                        <label class="form-label" for="columns_{{ $index }}_type">Tipe Kolom</label>
+                                                        <label class="form-label"
+                                                            for="columns_{{ $index }}_type">Tipe Kolom</label>
                                                         <select
                                                             class="form-select @error('columns.' . $index . '.type') is-invalid @enderror"
                                                             id="columns_{{ $index }}_type"
-                                                            name="columns[{{ $index }}][type]"
-                                                            required
-                                                        >
+                                                            name="columns[{{ $index }}][type]" required>
                                                             @foreach ($columnTypes as $type)
-                                                                <option @selected(($column["type"] ?? "string") === $type) value="{{ $type }}">{{ $type }}</option>
+                                                                <option @selected(($column['type'] ?? 'string') === $type)
+                                                                    value="{{ $type }}">{{ $type }}
+                                                                </option>
                                                             @endforeach
                                                         </select>
                                                         @error('columns.' . $index . '.type')
@@ -164,7 +176,8 @@
 
                                                     <div class="col-12 col-md-2">
                                                         <label class="form-label d-none d-md-block">&nbsp;</label>
-                                                        <button class="btn btn-soft-danger w-100 btn-remove-column" title="Hapus kolom" type="button">
+                                                        <button class="btn btn-soft-danger w-100 btn-remove-column"
+                                                            title="Hapus kolom" type="button">
                                                             <i data-lucide="trash-2"></i>
                                                             <span class="d-md-none ms-1">Hapus</span>
                                                         </button>
@@ -186,7 +199,7 @@
                 </form>
             </div>
 
-            @include("shared.partials.footer")
+            @include('shared.partials.footer')
         </div>
     </div>
 
@@ -195,14 +208,15 @@
             <div class="row g-2 align-items-start">
                 <div class="col-12 col-md-5">
                     <label class="form-label" for="columns___INDEX___name">Nama Kolom</label>
-                    <input class="form-control" id="columns___INDEX___name" name="columns[__INDEX__][name]" placeholder="product_name" required type="text">
+                    <input class="form-control" id="columns___INDEX___name" name="columns[__INDEX__][name]"
+                        placeholder="product_name" required type="text">
                 </div>
 
                 <div class="col-12 col-md-5">
                     <label class="form-label" for="columns___INDEX___type">Tipe Kolom</label>
                     <select class="form-select" id="columns___INDEX___type" name="columns[__INDEX__][type]" required>
                         @foreach ($columnTypes as $type)
-                            <option @selected($type === "string") value="{{ $type }}">{{ $type }}</option>
+                            <option @selected($type === 'string') value="{{ $type }}">{{ $type }}</option>
                         @endforeach
                     </select>
                 </div>
@@ -218,10 +232,10 @@
         </div>
     </template>
 
-    @include("shared.partials.customizer") @include("shared.partials.footer-scripts")
+    @include('shared.partials.customizer') @include('shared.partials.footer-scripts')
 @endsection
 
-@section("scripts")
+@section('scripts')
     <script>
         const columnsWrapper = document.getElementById("columns-wrapper");
         const columnTemplate = document.getElementById("column-template");
@@ -231,11 +245,14 @@
         let columnIndex = Number(columnsWrapper.dataset.nextIndex || 1);
 
         addColumnButton.addEventListener("click", () => {
-            columnsWrapper.insertAdjacentHTML("beforeend", columnTemplate.innerHTML.replace(/__INDEX__/g, columnIndex));
+            columnsWrapper.insertAdjacentHTML("beforeend", columnTemplate.innerHTML.replace(/__INDEX__/g,
+                columnIndex));
             columnIndex += 1;
 
             if (window.lucide) {
-                window.lucide.createIcons({ icons: window.lucide.icons });
+                window.lucide.createIcons({
+                    icons: window.lucide.icons
+                });
             }
         });
 
