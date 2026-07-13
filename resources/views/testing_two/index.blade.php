@@ -1,4 +1,4 @@
-@extends('shared.base', ['title' => 'Testing Two'])
+@extends('shared.base', ['title' => 'Testing Two']) {{-- sesuai dengan nama sidenav --}}
 
 @section('styles')
 @endsection
