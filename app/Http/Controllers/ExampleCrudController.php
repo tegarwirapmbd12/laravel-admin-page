@@ -29,18 +29,6 @@ class ExampleCrudController extends Controller
         return redirect()->route('example_cruds.index');
     }
 
-    public function update(Request $request, $id)
-    {
-        $validated = $request->validate([
-            'title' => 'required|string|max:255',
-            'content' => 'required'
-        ]);
-
-        $item = \App\Models\ExampleCrud::findOrFail($id);
-        $item->update($validated);
-        return redirect()->route('example_cruds.index');
-    }
-
     public function show($id)
     {
         $item = \App\Models\ExampleCrud::findOrFail($id);
@@ -56,7 +44,7 @@ class ExampleCrudController extends Controller
     public function update(Request $request, $id)
     {
         $validated = $request->validate([
-            'title' => 'required',
+            'title' => 'required|string|max:255',
             'content' => 'required'
         ]);
 
