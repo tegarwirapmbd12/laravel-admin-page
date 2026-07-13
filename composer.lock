@@ -5788,12 +5788,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/tegarwirapmbd12/fastcrud-v2.git",
-                "reference": "20defc18a9fe50d21846768eb7fb16e2ef1592a7"
+                "reference": "a387514cea7ea404c8a3c029384c45ce95c30625"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/tegarwirapmbd12/fastcrud-v2/zipball/20defc18a9fe50d21846768eb7fb16e2ef1592a7",
-                "reference": "20defc18a9fe50d21846768eb7fb16e2ef1592a7",
+                "url": "https://api.github.com/repos/tegarwirapmbd12/fastcrud-v2/zipball/a387514cea7ea404c8a3c029384c45ce95c30625",
+                "reference": "a387514cea7ea404c8a3c029384c45ce95c30625",
                 "shasum": ""
             },
             "require": {
@@ -5843,7 +5843,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2026-07-13T03:23:40+00:00"
+            "time": "2026-07-13T03:40:39+00:00"
         },
         {
             "name": "tijsverkoyen/css-to-inline-styles",
