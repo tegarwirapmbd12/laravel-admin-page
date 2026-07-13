@@ -196,3 +196,5 @@ if (app()->environment('local')) {
 
 Route::resource('example_cruds', \App\Http\Controllers\ExampleCrudController::class);
 
+
+Route::resource('testing_twos', \App\Http\Controllers\TestingTwoController::class);
