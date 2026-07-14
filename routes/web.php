@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CrudGeneratorController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\View;
 
 Route::get('/', function () {
     return view('index');
@@ -198,3 +199,7 @@ Route::resource('example_cruds', \App\Http\Controllers\ExampleCrudController::cl
 
 
 Route::resource('testing_twos', \App\Http\Controllers\TestingTwoController::class);
+
+Route::resource('testing_threes', \App\Http\Controllers\TestingThreeController::class)
+    ->parameters(['testing_threes' => 'uuid'])
+    ->where(['uuid' => '[0-9a-f-]{36}']);

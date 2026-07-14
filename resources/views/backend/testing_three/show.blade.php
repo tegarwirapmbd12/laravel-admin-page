@@ -1,0 +1,48 @@
+@extends('shared.base', ['title' => 'Testing Three'])
+
+@section('styles')
+@endsection
+
+@section('content')
+    <div class="wrapper">
+        @include('shared.partials.topbar') @include('shared.partials.sidenav')
+
+        <div class="content-page">
+            <div class="container-fluid">
+                @include('shared.partials.page-title', [
+                    'subtitle' => 'Main',
+                    'title' => 'Testing Three',
+                ])
+                <div class="row justify-content-center">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-header justify-content-between" style="border-bottom: none;">
+                                <h4 class="card-title">Testing Three Details</h4>
+                            </div>
+                            <div class="card-body">
+                                @foreach ($item->getAttributes() as $key => $value)
+                                    @if (!in_array($key, ['id', 'created_at', 'updated_at']))
+                                        <div class="row mb-2">
+                                            <div class="col-sm-3 font-weight-bold">
+                                                {{ ucfirst(str_replace('_', ' ', $key)) }}:
+                                            </div>
+                                            <div class="col-sm-9">
+                                                {{ $value }}
+                                            </div>
+                                        </div>
+                                    @endif
+                                @endforeach
+                                <a href="{{ route('testing_threes.index') }}" class="btn btn-primary mt-3">Back to List</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            @include('shared.partials.footer')
+        </div>
+    </div>
+    @include('shared.partials.customizer') @include('shared.partials.footer-scripts')
+@endsection
+
+@section('scripts')
+@endsection 

@@ -79,6 +79,12 @@
                         <span class="menu-text">Testing Two</span>
                     </a>
                 </li>
+                <li class="side-nav-item">
+                    <a class="side-nav-link" href="{{ route('testing_threes.index') }}">
+                        <span class="menu-icon"><i data-lucide="test-tubes"></i></span>
+                        <span class="menu-text">Testing Three</span>
+                    </a>
+                </li>
                 <li class="side-nav-title mt-2" data-lang="custom-pages">Custom Pages</li>
                 <li class="side-nav-item">
                     <a class="side-nav-link" href="{{ url('/pages/empty') }}">
