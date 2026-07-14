@@ -1,24 +1,7 @@
 @extends('shared.base', ['title' => 'CRUD Generator'])
 
 @php
-    $columnTypes = [
-        'string',
-        'text',
-        'longText',
-        'integer',
-        'bigInteger',
-        'smallInteger',
-        'tinyInteger',
-        'boolean',
-        'date',
-        'dateTime',
-        'timestamp',
-        'decimal',
-        'float',
-        'double',
-        'json',
-        'jsonb',
-    ];
+    $columnTypes = ['string', 'text', 'longText', 'integer', 'bigInteger', 'boolean', 'date'];
 
     $columns = old('columns', [['name' => '', 'type' => 'string', 'nullable' => '0']]);
 @endphp
@@ -133,10 +116,6 @@
                                         <i data-lucide="columns-3"></i>
                                         Kolom
                                     </h4>
-                                    <button class="btn btn-sm btn-soft-secondary" id="btn-add-column" type="button">
-                                        <i class="me-1" data-lucide="plus"></i>
-                                        Tambah Kolom
-                                    </button>
                                 </div>
                                 <div class="card-body">
                                     <div class="d-grid gap-3" data-next-index="{{ count($columns) }}" id="columns-wrapper">
@@ -188,7 +167,7 @@
                                                             class="form-select @error('columns.' . $index . '.nullable') is-invalid @enderror"
                                                             id="columns_{{ $index }}_nullable"
                                                             name="columns[{{ $index }}][nullable]" required>
-                                                            <option value="0" @selected(! $isNullable)>No</option>
+                                                            <option value="0" @selected(!$isNullable)>No</option>
                                                             <option value="1" @selected($isNullable)>Yes
                                                             </option>
                                                         </select>
@@ -211,7 +190,11 @@
                                     </div>
                                 </div>
                                 <div class="card-footer border-0 d-flex justify-content-end">
-                                    <button class="btn btn-primary" id="generate-submit" type="submit">
+                                    <button class="btn btn-sm btn-soft-secondary" id="btn-add-column" type="button">
+                                        <i class="me-1" data-lucide="plus"></i>
+                                        Tambah Kolom
+                                    </button>
+                                    <button class="btn btn-primary mx-2" id="generate-submit" type="submit">
                                         <i class="me-1" data-lucide="wand-sparkles"></i>
                                         <span data-submit-label>Generate CRUD</span>
                                     </button>
